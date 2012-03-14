@@ -1,0 +1,10 @@
+xscreensaver -no-splash &
+setxkbmap no &
+/usr/local/libexec/gnome-settings-daemon &
+sleep 2
+feh --bg-scale /home/erik/wallpapers/pcbsd_c.jpg &
+fbpanel &
+#idesk &
+#synergyc pepper &
+xrdb -load .Xdefaults
+/home/erik/bin/quicksynergy &

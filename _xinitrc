@@ -1,0 +1,10 @@
+synergys -c ~/synergy.conf &
+xscreensaver -no-splash &
+#synergyc pepper &
+setxkbmap no &
+#xrsi 2400 30 &
+/usr/local/libexec/gnome-settings-daemon &
+feh --bg-scale ~/wallpapers/djupen-2.jpg &
+fbpanel &
+xrdb -load .Xdefaults
+exec ssh-agent openbox

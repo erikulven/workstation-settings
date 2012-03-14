@@ -1,0 +1,6 @@
+ie, generate all gems for jruby:
+$ rtags -f ruby14_tags --vi -R ~/dev/tools/jruby-1.4.0/lib/ruby/gems/1.8/gems
+
+generate for rails project:
+$ cd RAILS_ROOT
+$ rtags --vi -R

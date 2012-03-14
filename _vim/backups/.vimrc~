@@ -1,0 +1,122 @@
+call pathogen#infect() 
+call pathogen#helptags()
+
+set nocompatible          " We're running Vim, not Vi!
+syntax on                 " Enable syntax highlighting
+filetype plugin indent on " Enable filetype-specific indenting and plugins
+
+" Load matchit (% to bounce from do to end, etc.)
+runtime! macros/matchit.vim
+
+augroup myfiletypes
+    " Clear old autocmds in group
+    autocmd!
+    " autoindent with two spaces, always expand tabs
+    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+augroup END
+
+" let mapleader = ","
+
+" pretty-print JSON files
+autocmd BufRead,BufNewFile *.json set filetype=json
+" json.vim is here: http://www.vim.org/scripts/script.php?script_id=1945
+autocmd Syntax json sou ~/.vim/syntax/json.vim
+" json_reformat is part of yajl: http://lloyd.github.com/yajl/
+autocmd FileType json set equalprg=json_reformat
+
+
+" Format xml using xmllint
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+autocmd BufRead,BufNewFile *.xml set filetype=xml
+autocmd FileType xml set equalprg="xmllint --format - 2>/dev/null"
+
+set encoding=utf-8
+set fileencodings=
+" rails ide customizations
+" Add recently accessed projects menu (project plugin)
+set viminfo^=!
+
+" showtabline	0, 1 or 2; when to use a tab pages line
+" 	set stal=1
+"tabpagemax	maximum number of tab pages to open for -p and "tab all"
+" 	set tpm=10
+"tabline	custom tab pages line
+" 	set tal=
+"guitablabel	custom tab page label for the GUI
+" 	set gtl=
+"guitabtooltip	custom tab page tooltip for the GUI
+" 	set gtt=
+set stal=1
+set gtl=
+set gtt=
+
+" Minibuffer Explorer Settings
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+ 
+" alt+n or alt+p to navigate between entries in QuickFix
+map <silent> <m-p> :cp <cr>
+map <silent> <m-n> :cn <cr>
+ 
+" Change which file opens after executing :Rails command
+let g:rails_default_file='config/database.yml'
+
+set cf  " Enable error files & error jumping.
+set clipboard+=unnamed  " Yanks go on clipboard instead.
+set history=512 " Number of things to remember in history.
+set autowrite  " Writes on make/shell commands
+set ruler  " Ruler on
+set nu  " Line numbers on
+set nowrap  " Line wrapping off
+set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
+" set background=dark 
+colorscheme dawn "peaksea ir_black 
+syntax on
+
+" Formatting (some of these are for coding in C and C++)
+set ts=2  " Tabs are 2 spaces
+set bs=2  " Backspace over everything in insert mode
+set shiftwidth=2  " Tabs under smart indent
+set nocp incsearch
+set cinoptions=:0,p0,t0
+set cinwords=if,else,while,do,for,switch,case
+set formatoptions=tcqr
+set cindent
+set autoindent
+set smarttab
+set expandtab
+ 
+" Visual
+set showmatch  " Show matching brackets.
+set mat=5  " Bracket blinking.
+set list
+" Show $ at end of line and trailing space as ~
+set lcs=tab:\ \ ",eol:$,trail:~,extends:>,precedes:<
+set novisualbell  " No blinking .
+set noerrorbells  " No noise.
+set laststatus=2  " Always show status line.
+ 
+" gvim specific
+" set mousehide  " Hide mouse after chars typed
+" set mouse=a  " Mouse in all modes
+
+" Backups & Files
+set backup                     " Enable creation of backup file.
+set backupdir=~/.vim/backups " Where backups will go.
+set directory=~/.vim/tmp     " Where temporary files will go.
+
+set tags=./tags,tags,~/.vim/tags/ruby14_tags
+
+" hi VertSplit guifg=#202020 guibg=#404040 gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=NONE 
+" hi StatusLine guifg=#dddddd guibg=#404040 gui=italic ctermfg=white ctermbg=darkgray cterm=NONE 
+" hi StatusLineNC guifg=#777777 guibg=#404040 gui=NONE ctermfg=blue ctermbg=darkgray cterm=NONE
+
+" hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray cterm=NONE 
+" hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
+" hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
+:set hlsearch
+
+"NERDTree toggle on F5
+nnoremap <silent> <F5> :NERDTreeToggle<CR>

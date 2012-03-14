@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/usr/home/erik/Downloads/bootstrap'
+let g:netrw_dirhist_2='/usr/home/erik/Downloads/foundation-download-2.1.5'
+let g:netrw_dirhist_3='/usr/home/erik/NetBeansProjects/dimuweb'
+let g:netrw_dirhist_4='/usr/home/erik/workspace/nal/web'
+let g:netrw_dirhist_5='/usr/home/erik/tmp/vaadin/project-name'
+let g:netrw_dirhist_6='/usr/data/dev/projects/ksamsok-src/localnod'
